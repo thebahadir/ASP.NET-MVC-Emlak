@@ -6,5 +6,6 @@ Asp.net mvc ile yapmış olduğum basit bir emlak sitesi.
 
 
 >Admin Username : Admin
+
 >Password       : 123456
 
