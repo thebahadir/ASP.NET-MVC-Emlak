@@ -1,0 +1,96 @@
+﻿<!doctype html>
+<html lang="tr">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/Content/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <!-- Font Awasome -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <!-- Optional JavaScript; choose one of the two! -->
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="/Content/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+
+    <title>Emlak Sitesi</title>
+</head>
+<body>
+    <header>
+        <!-- Navbar -->
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light btn-light">
+                <a class="navbar-brand" href="/Home/Index"><img src="/Content/images/logo.png" width="100" height="34" /> </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                    @Html.Partial("Ara")
+
+                </div>
+                <div>
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item dropdown">
+                            @Html.Action("DurumAd1", "Emlak")
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                @Html.Action("DurumEmlak1", "Emlak")
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            @Html.Action("DurumAd2", "Emlak")
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                @Html.Action("DurumEmlak2", "Emlak")
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                @Html.Partial("LoginPartial")
+            </nav>
+        </div>
+
+    </header>
+    @RenderBody()
+    <footer>
+        <!-- Footer -->
+        <br />
+        <div class="container">
+            <div class="navbar navbar-light btn-light">
+                <div class="col-md-9">
+                    <h6 class="text-uppercase" style="color:black; margin-top:10px">İLETİŞİM</h6>
+                    <div class="text-uppercase" style="font-size:12px; margin-left:17px;">Bahçelievler, Bosna Blv No: 140, 34680 Üsküdar/İstanbul</div>
+                    <ul class="list-unstyled" style="display:inline-flex; margin:10px">
+                        @if (Request.IsAuthenticated)
+                        {
+                            @Html.Action("Durum", "Durum")
+                        }
+                        else
+                        {
+                            <li><a href="/Account/Login" style="color:black; font-size:14px; margin: 5px;"> Giriş </a></li>
+                            <li><a href="/Account/Register" style="color: black; font-size: 14px; margin: 5px;"> Üye Ol </a></li>
+                            @Html.Action("Durum", "Durum")
+                        }
+
+
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="text-uppercase" style="color:black; margin-top:10px">SOSYAL MEDYA</h6>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="https://www.facebook.com" style="color:black"><i class="fa fa-facebook-square"></i></a>
+                            <a href="https://www.twitter.com" style="color:black"><i class="fa fa-twitter-square"></i></a>
+                            <a href="https://www.youtube.com" style="color:black"><i class="fa fa-youtube-square"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

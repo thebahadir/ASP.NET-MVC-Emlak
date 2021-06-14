@@ -1,0 +1,49 @@
+﻿@model ProjeEmlak.Models.Emlak
+
+@{
+    ViewBag.Title = "Delete";
+}
+<div class="container">
+    <div class="row" style="justify-content:center; padding-top:15px; padding-bottom:110px;">
+        
+        <div class="col-md-12">
+            <div class="img-thumbnail">
+
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/Admin/Index">Admin Sayfası</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Emlak Sil</li>
+                    </ol>
+                </nav>
+                <div class="navbar navbar-light btn-light">
+
+                    <div>
+                        <h6>Durum</h6> @Html.DisplayFor(model => model.Durum.DurumAd)
+                    </div>
+
+                    <div>
+                        <h6>Emlak</h6> @Html.DisplayFor(model => model.EmlakAd)
+                    </div>
+                    <br />
+
+                    <h6 style="color:#d00000;">Bu kaydı silmek istediğinize emin misiniz?</h6>
+                </div>
+                <br />
+                <div>
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-actions no-color" style="padding-left:15px">
+                            <input type="submit" value="Sil" class="btn btn-outline-info btn-sm" />
+                            @Html.ActionLink("Emlak Listesi", "Index", null, new { @class = "btn btn-outline-info btn-sm" })
+
+                        </div>
+                    }
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

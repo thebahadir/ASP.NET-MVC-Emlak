@@ -1,0 +1,56 @@
+﻿@model ProjeEmlak.Models.Semt
+
+@{
+    ViewBag.Title = "Create";
+}
+<div class="container">
+    <div class="row" style="padding-top:15px">
+        
+        <div class="col-md-12">
+            <div class="img-thumbnail">
+
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/Admin/Index">Admin Sayfası</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Semt Ekle</li>
+                    </ol>
+                </nav>
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SemtAd, "Semt Adı", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.SemtAd, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.SemtAd, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SehirId, "Şehir Adı", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.DropDownList("SehirId", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.SehirId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-8">
+                        <input type="submit" value="Kaydet" class="btn btn-outline-info btn-sm" />
+                        @Html.ActionLink("Semt Listesi", "Index", null, new { @class = "btn btn-outline-info btn-sm" })
+                    </div>
+                </div>
+            </div>
+                }
+
+            </div>
+
+        </div>
+    </div>
+
+
+</div>

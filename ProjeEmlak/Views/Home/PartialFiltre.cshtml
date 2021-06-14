@@ -1,0 +1,119 @@
+﻿@model ProjeEmlak.Models.Ilan
+
+<div class="col-md-4">
+    <!-- Filter -->
+    @using (Html.BeginForm("Filtre", "Home", FormMethod.Get, new { @class = "list-group-horizontal-sm" }))
+    {
+        <div class="form-group row">
+            <label for="colFormLabel" class="col-sm-4 col-form-label font-weight-bold">En Az (₺)</label>
+            <div class="col-sm-7">
+                <input type="text" name="min" class="form-control" id="colFormLabel " placeholder="En Az (Fiyat)">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="colFormLabel" class="col-sm-4 col-form-label font-weight-bold">En Çok (₺)</label>
+            <div class="col-sm-7">
+                <input type="text" name="max" class="form-control" id="colFormLabel " placeholder="En Çok (Fiyat)">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="colFormLabel" class="col-sm-4 col-form-label font-weight-bold">Şehir</label>
+            <div class="col-sm-7">
+                @if (ViewBag.sehirlist != null)
+                {
+                    @Html.DropDownListFor(s => s.SehirId, ViewBag.sehirlist as SelectList, "Şehir", new { @class = "form-control" })
+                }
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="colFormLabel" class="col-sm-4 col-form-label font-weight-bold">Semt</label>
+            <div class="col-sm-7">
+                @Html.DropDownListFor(s => s.SemtId, new SelectList(""), "Semt", new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="colFormLabel" class="col-sm-4 col-form-label font-weight-bold">Mahalle</label>
+            <div class="col-sm-7">
+                @Html.DropDownListFor(m => m.MahalleId, new SelectList(""), "Mahalle", new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="colFormLabel" class="col-sm-4 col-form-label font-weight-bold">Durum</label>
+            <div class="col-sm-7">
+                @if (ViewBag.durumlist != null)
+                {
+                    @Html.DropDownListFor(d => d.DurumId, ViewBag.durumlist as SelectList, "Durum", new { @class = "form-control" })
+                }
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="colFormLabel" class="col-sm-4 col-form-label font-weight-bold">Emlak</label>
+            <div class="col-sm-7">
+                @Html.DropDownListFor(e => e.EmlakId, new SelectList(""), "Emlak", new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="colFormLabel" class="col-sm-4 col-form-label"></label>
+            <div class="col-sm-5">
+                <button type="submit" class="btn btn-outline-info  btn-sm"><i class="fa fa-filter"></i> FİLTRELE</button>
+            </div>
+        </div>
+    }
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#SehirId").change(function () {
+            var sehirId = $(this).val();
+            debugger
+            $.ajax({
+                type: "Post",
+                url: "/Ilan/SemtGetir?SehirId=" + sehirId,
+                contentType: "html",
+                success: function (response) {
+                    debugger
+                    $("#SemtId").empty();
+                    $("#SemtId").append(response);
+                }
+            })
+        })
+    })
+</script>
+<script>
+    $(document).ready(function () {
+        $("#SemtId").change(function () {
+            var semtId = $(this).val();
+            debugger
+            $.ajax({
+                type: "Post",
+                url: "/Ilan/MahalleGetir?SemtId=" + semtId,
+                contentType: "html",
+                success: function (response) {
+                    debugger
+                    $("#MahalleId").empty();
+                    $("#MahalleId").append(response);
+                }
+            })
+        })
+    })
+</script>
+<script>
+    $(document).ready(function () {
+        $("#DurumId").change(function () {
+            var durumId = $(this).val();
+            debugger
+            $.ajax({
+                type: "Post",
+                url: "/Ilan/EmlakGetir?DurumId=" + durumId,
+                contentType: "html",
+                success: function (response) {
+                    debugger
+                    $("#EmlakId").empty();
+                    $("#EmlakId").append(response);
+                }
+            })
+        })
+    })
+</script>

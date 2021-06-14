@@ -1,0 +1,6 @@
+﻿@model IEnumerable<ProjeEmlak.Models.Emlak>
+
+@foreach (var item in Model)
+{
+    <a class="dropdown-item" href="/Home/Menu/@item.EmlakId">@item.EmlakAd</a>
+}

@@ -1,0 +1,71 @@
+﻿@model IEnumerable<ProjeEmlak.Models.Ilan>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+    <div class="row" style="padding-top:15px">
+        <div class="col-md-12">
+            <div class="img-thumbnail" style="height:450px">
+
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/Admin/Index">Admin Sayfası</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Ana Sayfa</li>
+                    </ol>
+                </nav>
+                <div class="row list-group-horizontal-sm">
+                    <div class="col-md-3" style="text-align: center">
+                        <div class="img-thumbnail">
+                            <img src="~/Content/images/analysis.png" style="height: 75px;" />
+                            <div class="figure-caption" style="padding-top: 10px">
+                                <p>@Html.ActionLink("Şehir Listesi", "Index", "Sehir", null, new { @class = "btn btn-outline-info btn-block" })</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3" style="text-align: center">
+                        <div class="img-thumbnail">
+                            <img src="~/Content/images/analysis.png" style="height: 75px;" />
+                            <div class="figure-caption" style="padding-top: 10px">
+                                <p>@Html.ActionLink("Semt Listesi", "Index", "Semt", null, new { @class = "btn btn-outline-info btn-block" })</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3" style="text-align: center">
+                        <div class="img-thumbnail">
+                            <img src="~/Content/images/analysis.png" style="height: 75px;" />
+                            <div class="figure-caption" style="padding-top: 10px">
+                                <p>@Html.ActionLink("Mahalle Listesi", "Index", "Mahalle", null, new { @class = "btn btn-outline-info btn-block" })</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3" style="text-align: center">
+                        <div class="img-thumbnail">
+                            <img src="~/Content/images/analysis.png" style="height: 75px;" />
+                            <div class="figure-caption" style="padding-top: 10px">
+                                <p>@Html.ActionLink("Durum Listesi", "Index", "Durum", null, new { @class = "btn btn-outline-info btn-block" })</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3" style="text-align: center">
+                        <div class="img-thumbnail">
+                            <img src="~/Content/images/analysis.png" style="height: 75px;" />
+                            <div class="figure-caption" style="padding-top: 10px">
+                                <p>@Html.ActionLink("Emlak Listesi", "Index", "Emlak", null, new { @class = "btn btn-outline-info btn-block" })</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3" style="text-align: center">
+                        <div class="img-thumbnail">
+                            <img src="~/Content/images/analysis.png" style="height: 75px;" />
+                            <div class="figure-caption" style="padding-top: 10px">
+                                <p>@Html.ActionLink("İlan Listesi", "IlanListesi", "Admin", null, new { @class = "btn btn-outline-info btn-block" })</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

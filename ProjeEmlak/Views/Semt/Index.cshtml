@@ -1,0 +1,54 @@
+﻿@model IEnumerable<ProjeEmlak.Models.Semt>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="container">
+    <div class="row" style="justify-content:center; padding-top:15px; padding-bottom:110px;">
+        
+        <div class="col-md-12">
+            <div class="img-thumbnail">
+
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/Admin/Index">Admin Sayfası</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Semt Listesi</li>
+                    </ol>
+                </nav>
+                <a class="btn btn-outline-info btn-block" href="@Url.Action("Create")">Semt Ekle</a>
+                <table class="table">
+                    <tr>
+                        <th>
+                            Şehir Adı
+                        </th>
+                        <th>
+                            Semt Adı
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Sehir.SehirAd)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SemtAd)
+                            </td>
+                            <td>
+                                <a class="btn btn-outline-info btn-sm" href="@Url.Action("Edit", new { id = item.SemtId })"><i class="fa fa-edit"></i> Düzenle</a>
+                                <a class="btn btn-outline-info btn-sm" href="@Url.Action("Delete", new { id = item.SemtId })"><i class="fa fa-trash"></i> Sil</a>
+
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

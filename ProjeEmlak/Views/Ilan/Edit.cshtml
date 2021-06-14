@@ -1,0 +1,214 @@
+﻿@model ProjeEmlak.Models.Ilan
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="container">
+    <div class="row" style="justify-content: center; padding-top: 15px">
+
+        <div class="col-md-12" style="text-align: left">
+            <div class="img-thumbnail">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/Home/Index">Ana Sayfa</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">İlan Güncelle</li>
+                    </ol>
+                </nav>
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+            <div class="form-horizontal" style="font-weight: bold; padding-left: 15px">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.IlanId)
+
+                <div class="form-group row">
+                    @Html.LabelFor(model => model.SehirId, "Şehir", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @if (ViewBag.sehirlist != null)
+                        {
+                            @Html.DropDownListFor(s => s.SehirId, ViewBag.sehirlist as SelectList, "Sehir Seç", new { @class = "form-control" })
+                        }
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    @Html.LabelFor(model => model.SemtId, "Semt", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.DropDownList("SemtId", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.SemtId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    @Html.LabelFor(model => model.MahalleId, "Mahalle", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.DropDownList("MahalleId", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.MahalleId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    @Html.LabelFor(model => model.DurumId, "Durum", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @if (ViewBag.durumlist != null)
+                        {
+                            @Html.DropDownListFor(d => d.DurumId, ViewBag.durumlist as SelectList, "Durum Seç", new { @class = "form-control" })
+                        }
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    @Html.LabelFor(model => model.EmlakId, "Emlak", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.DropDownList("EmlakId", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.EmlakId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    @Html.LabelFor(model => model.Kat, "Bulunduğu Kat", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.Kat, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Kat, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    @Html.LabelFor(model => model.Alan, "Alan", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.Alan, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Alan, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    @Html.LabelFor(model => model.OdaSayisi, "Oda Sayısı", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.OdaSayisi, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.OdaSayisi, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    @Html.LabelFor(model => model.BanyoSayisi, "Banyo Sayısı", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.BanyoSayisi, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.BanyoSayisi, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    @Html.LabelFor(model => model.Isitma, "Isıtma", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.Isitma, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Isitma, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    @Html.LabelFor(model => model.Fiyat, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.Fiyat, "Fiyat", new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Fiyat, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    @Html.LabelFor(model => model.Kredi, "Krediye Uygun", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.Kredi)
+                            @Html.ValidationMessageFor(model => model.Kredi, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    @Html.LabelFor(model => model.Telefon, "Telefon", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.Telefon, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Telefon, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    @Html.LabelFor(model => model.Aciklama, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.Aciklama, "Açıklama", new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Aciklama, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="colFormLabel" class="col-sm-4 col-form-label"></label>
+                    <div class="col-md-4">
+                        <input type="submit" value="Kaydet" class="btn btn-outline-info btn-sm" />
+                        @Html.ActionLink("İlan Listesi", "Index", null, new { @class = "btn btn-outline-info btn-sm" })
+                    </div>
+                </div>
+            </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#SehirId").change(function () {
+            var sehirId = $(this).val();
+            debugger
+            $.ajax({
+                type: "Post",
+                url: "/Ilan/SemtGetir?SehirId=" + sehirId,
+                contentType: "html",
+                success: function (response) {
+                    debugger
+                    $("#SemtId").empty();
+                    $("#SemtId").append(response);
+                }
+            })
+        })
+    })
+</script>
+<script>
+    $(document).ready(function () {
+        $("#SemtId").change(function () {
+            var semtId = $(this).val();
+            debugger
+            $.ajax({
+                type: "Post",
+                url: "/Ilan/MahalleGetir?SemtId=" + semtId,
+                contentType: "html",
+                success: function (response) {
+                    debugger
+                    $("#MahalleId").empty();
+                    $("#MahalleId").append(response);
+                }
+            })
+        })
+    })
+</script>
+<script>
+    $(document).ready(function () {
+        $("#DurumId").change(function () {
+            var durumId = $(this).val();
+            debugger
+            $.ajax({
+                type: "Post",
+                url: "/Ilan/EmlakGetir?DurumId=" + durumId,
+                contentType: "html",
+                success: function (response) {
+                    debugger
+                    $("#EmlakId").empty();
+                    $("#EmlakId").append(response);
+                }
+            })
+        })
+    })
+</script>

@@ -1,0 +1,80 @@
+﻿@model ProjeEmlak.Models.Ilan
+
+@{
+    ViewBag.Title = "Detay";
+}
+
+<div class="container">
+    <div class="row" style="padding-top:15px">
+        <div class="col-md-4">
+            <table class="table d-sm-table">
+                <tbody>
+                    <tr><th colspan="2">@Model.Mahalle.Semt.Sehir.SehirAd /  @Model.Mahalle.Semt.SemtAd /  @Model.Mahalle.MahalleAd</th></tr>
+                    <tr><td><strong>Fiyat</strong></td><td>@Model.Fiyat ₺</td></tr>
+                    <tr><td><strong>Durum</strong></td><td>@Model.Emlak.Durum.DurumAd</td></tr>
+                    <tr><td><strong>Emlak</strong></td><td>@Model.Emlak.EmlakAd</td></tr>
+                    <tr><td><strong>Alan</strong></td><td>@Model.Alan m<sup>2</sup></td></tr>
+                    <tr><td><strong>Oda Sayısı</strong></td><td>@Model.OdaSayisi</td></tr>
+                    <tr><td><strong>Banyo Sayısı</strong></td><td>@Model.BanyoSayisi</td></tr>
+                    <tr><td><strong>Bulunduğu Kat</strong></td><td>@Model.Kat</td></tr>
+                    <tr><td><strong>Isıtma</strong></td><td>@Model.Isitma</td></tr>
+                    <tr>
+                        <td><strong>Krediye Uygun</strong></td>
+                        <td>
+                            @if (Model.Kredi == true)
+                            {
+                                <label>Evet</label>
+                            }
+                            else
+                            {
+                                <label>Hayır</label>
+                            }
+                        </td>
+                    </tr>
+                    <tr><td><strong>Telefon</strong></td><td><button class="btn btn-outline-danger btn-sm" style="cursor:default"><i class="fa fa-phone"></i> @Model.Telefon</button></td></tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-8">
+            <!-- Slider -->
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
+                <div class="carousel-inner">
+                    @{ int i = 0;}
+                    @foreach (var item in ViewBag.img)
+                    {
+                        i++;
+                        var active = i == 1 ? "active" : "";
+                        <div class="carousel-item @active">
+                            <img src="/Content/images/@item.ResimAd" class="d-block w-100" alt="..." style="width:1150px; height:400px">
+                        </div>
+                    }
+
+
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+            <br />
+            <div style="border-inline:dashed; border-color:#dedede; padding-left:10px; padding-right:10px">
+                <strong>Açıklama</strong>
+                <div style="padding-top:10px">
+                    @Model.Aciklama
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

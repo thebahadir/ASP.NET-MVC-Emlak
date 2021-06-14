@@ -1,0 +1,36 @@
+﻿
+@if (Request.IsAuthenticated)
+{
+    if (this.User.IsInRole("Admin"))
+    {
+        <div style="padding-right:8px"><a href="/Admin/Index" style="color:grey; padding-left:134px"> Admin Paneli </a></div>
+        <div style="padding-right:8px"><a href="/Ilan/Index" style="color:grey"> @User.Identity.Name </a></div>
+        <div style="padding-right:8px"><a href="/Account/Profil" style="color:grey"> Profilim </a></div>
+        <div>
+            <a href="/Account/LogOut" class="btn btn-outline-info btn-sm"><i class="fa fa-times-circle"></i> Çıkış</a>
+            <a href="/Ilan/Create" class="btn btn-outline-info btn-sm"><i class="fa fa-bullhorn"></i> İLAN VER</a>
+        </div>
+    }
+
+    else
+    {<div style=" padding-left: 225px"></div>
+        <div style="padding-right:8px"><a href="/Ilan/Index" style="color:grey;"> @User.Identity.Name </a></div>
+        <div style="padding-right:8px"><a href="/Account/Profil" style="color:grey"> Profilim </a></div>
+        <div>
+            <a href="/Account/LogOut" class="btn btn-outline-info btn-sm"><i class="fa fa-times-circle"></i> Çıkış</a>
+            <a href="/Ilan/Create" class="btn btn-outline-info btn-sm"><i class="fa fa-bullhorn"></i> İLAN VER</a>
+        </div>
+    }
+}
+
+else
+{
+    <div>
+        <label style="padding-left:272px"></label>
+        <a href="/Account/Register" class="btn btn-outline-info btn-sm"><i class="fa fa-user-plus"></i> Üye Ol</a>
+        <a href="/Account/Login" class="btn btn-outline-info btn-sm"><i class="fa fa-sign-in"></i> Giriş</a>
+        <a href="/Account/Login" class="btn btn-outline-info btn-sm"><i class="fa fa-bullhorn"></i> İLAN VER</a>
+    </div>
+}
+
+

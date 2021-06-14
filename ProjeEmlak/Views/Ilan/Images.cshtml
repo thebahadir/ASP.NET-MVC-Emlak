@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Images";
+}
+
+<div class="container" style="padding-top:15px">
+    <div class="navbar navbar-light btn-light">
+        @{
+            Html.BeginForm("Images", "Ilan", FormMethod.Post, new { enctype = "multipart/Form-data" });
+            foreach (var item in ViewBag.ilan)
+            {
+                <h5>@item.IlanId Numaralı ilan için resim ekle</h5>
+                <br />
+                <table>
+                    <tr>
+                        <td><input style="font-size:14px" type="hidden" name="Id" value="@item.IlanId" /></td>
+                        <td><input style="font-size:14px" type="file" name="file" /></td>
+                    </tr>
+                </table>
+                <br />
+                <input type="submit" value="Ekle" class="btn btn-outline-info btn-sm" />
+                @Html.ActionLink("İlan Listesi", "Index", null, new { @class = "btn btn-outline-info btn-sm" })
+            }
+        }
+    </div>
+    <br />
+    <div class="row">
+        @foreach (var item in ViewBag.rsml)
+        {
+            <div class="col-md-4">
+                <div class="img-thumbnail" style="text-align:center">
+                    <img src="~/Content/images/@item.ResimAd" height="250" width="250" />
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

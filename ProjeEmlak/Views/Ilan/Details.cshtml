@@ -1,0 +1,146 @@
+﻿@model ProjeEmlak.Models.Ilan
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Ilan</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Emlak.EmlakAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Emlak.EmlakAd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mahalle.MahalleAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mahalle.MahalleAd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Aciklama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Aciklama)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fiyat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fiyat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OdaSayisi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OdaSayisi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BanyoSayisi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BanyoSayisi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kredi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kredi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Alan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Alan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Isitma)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Isitma)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adres)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KullaniciAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KullaniciAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SehirId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SehirId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SemtId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SemtId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DurumId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DurumId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IlanId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

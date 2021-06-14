@@ -1,0 +1,34 @@
+﻿@model ProjeEmlak.Models.Ilan
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div class="container">
+    <div class="row" style="justify-content: center; padding-top: 15px">
+        <div class="col-md-12" style="text-align: left">
+            <div class="img-thumbnail">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/Home/Index">Ana Sayfa</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">İlan Sil</li>
+                    </ol>
+                </nav>
+                <div>
+
+                    <h6 style="text-align:center; color:#d00000; padding-bottom:10px">Bu ilanı silmek istediğinize emin misiniz?</h6>
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-actions no-color" style="text-align: center; padding-bottom: 10px ">
+                            <input type="submit" value="Sil" class="btn btn-outline-info btn-sm" />
+                            @Html.ActionLink("İlan Listesi", "IlanListesi", null, new { @class = "btn btn-outline-info btn-sm" })
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

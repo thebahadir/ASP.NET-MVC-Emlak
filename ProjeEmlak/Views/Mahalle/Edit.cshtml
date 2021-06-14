@@ -1,0 +1,58 @@
+﻿@model ProjeEmlak.Models.Mahalle
+
+@{
+    ViewBag.Title = "Edit";
+}
+<div class="container">
+    <div class="row" style="justify-content:center; padding-top:15px; padding-bottom:110px;">
+        <div class="col-md-12">
+            <div class="img-thumbnail">
+
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/Admin/Index">Admin Sayfası</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Mahalle Güncelle</li>
+                    </ol>
+                </nav>
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => model.MahalleId)
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.MahalleAd, "Mahalle Adı", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-4">
+                                @Html.EditorFor(model => model.MahalleAd, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.MahalleAd, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.SemtId, "Semt Adı", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-4">
+                                @Html.DropDownList("SemtId", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.SemtId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Kaydet" class="btn btn-outline-info btn-sm" />
+                                @Html.ActionLink("Mahalle Listesi", "Index", null, new { @class = "btn btn-outline-info btn-sm" })
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+

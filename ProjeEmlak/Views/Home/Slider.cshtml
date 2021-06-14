@@ -1,0 +1,22 @@
+﻿@model IEnumerable<ProjeEmlak.Models.Ilan>
+    @{ int i = 0;}
+@foreach (var item in Model)
+{
+    i++;
+    var rsm = 1;
+    var active = i == 1 ? "active" : "";
+<div class="carousel-item @active">
+    @foreach (var resim in ViewBag.img)
+    {
+        if (resim.IlanId == item.IlanId)
+        {
+            if (@rsm == 1)
+            {
+                <a href="/Home/Detay/@item.IlanId"> <img src="/Content/images/@resim.ResimAd" class="d-block w-100" alt="..." style="width:1150px; height:400px"></a>
+                rsm++;
+            }
+        }
+    }
+
+</div>
+}

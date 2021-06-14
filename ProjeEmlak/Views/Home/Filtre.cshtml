@@ -1,0 +1,49 @@
+﻿@model IEnumerable<ProjeEmlak.Models.Ilan>
+
+@{
+    ViewBag.Title = "Filtre";
+}
+
+<div class="container">
+    <div class="row" style="padding-top:15px">
+        @Html.Action("PartialFiltre", "Home")
+        <div class="col-md-8">
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    var rsm = 1;
+
+                    <div class="col-sm-6 col-sm-3">
+                        <div class="card-deck">
+                            <div class="card">
+                                @foreach (var resim in ViewBag.img)
+                                {
+                                    if (resim.IlanId == item.IlanId)
+                                    {
+                                        if (@rsm == 1)
+                                        {
+                                            <a href="/Home/Detay/@item.IlanId"> <img src="~/Content/images/@resim.ResimAd" class="card-img-top" alt="..."></a>
+                                            rsm++;
+                                        }
+                                    }
+                                }
+                                <div class="card-body">
+                                    <P><strong>@item.Emlak.Durum.DurumAd</strong> (@item.Emlak.EmlakAd)</P>
+                                    <p>@item.Mahalle.Semt.Sehir.SehirAd - @item.Mahalle.Semt.SemtAd</p>
+                                    <p>
+                                        <button class="btn btn-outline-info btn-sm" style="cursor:default">@item.Fiyat (₺)</button>
+                                        <button class="btn btn-outline-info btn-sm" style="cursor:default">@item.Alan m<sup>2</sup></button>
+                                        <button class="btn btn-outline-info btn-sm" style="cursor:default"><i class="fa fa-bed"> @item.OdaSayisi</i></button>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
